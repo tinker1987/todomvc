@@ -17,6 +17,9 @@
 		<link rel="shortcut icon" href="site-assets/favicon.ico">
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="site-assets/main.css">
+		<script src="bower_components/platform/platform.js"></script>
+		<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+		<link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
 	</head>
 	<body>
 		<div class="container">
@@ -36,6 +39,40 @@
 			</header>
 			<div class="row">
 				<div class="col-md-4">
+					<style shim-shadowdom>
+						paper-checkbox {
+							padding: 12px;
+							padding-left: 0;
+						}
+						paper-checkbox::shadow #ink[checked] {
+								color: #b12d2b;
+						}
+						paper-checkbox::shadow #checkbox.checked {
+								border-color: #b12d2b;
+						}
+					</style>
+					<h2>Filters</h2>
+					<div horizontal layout>
+						<paper-checkbox checked></paper-checkbox>
+						<div vertical layout>
+							<h4>JavaScript</h4>
+							<div>Examples written in pure JavaScript</div>
+						</div>
+					</div>
+					<div horizontal layout>
+						<paper-checkbox checked></paper-checkbox>
+						<div vertical layout>
+							<h4>Compile-to-JS</h4>
+							<div>Examples written in languages that compile to JavaScript</div>
+						</div>
+					</div>
+					<div horizontal layout>
+						<paper-checkbox checked></paper-checkbox>
+						<div vertical layout>
+							<h4>Vanilla</h4>
+							<div>Examples that don&amp;t follow MV* principles</div>
+						</div>
+					</div>
 					<h2>Introduction</h2>
 					<p>Developers these days are spoiled with choice when it comes to <a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">selecting</a> an <strong>MV* framework</strong> for structuring and organizing their JavaScript web apps.</p>
 					<p>Backbone, Ember, AngularJS... the list of new and stable solutions continues to grow, but just how do you decide on which to use in a sea of so many options?</p>
@@ -45,7 +82,26 @@
 					<div class="g-plusone" data-size="medium" data-annotation="none" data-href="http://todomvc.com"></div>
 				</div>
 				<div class="col-md-8">
-					<h2>JavaScript Apps</h2>
+					<style shim-shadowdom>
+						paper-tabs, core-toolbar {
+							color: rgb(53, 53, 53);
+							background-color: #f4f4f4;
+							font-family: 'Helvetica Neue', Helvetica, Arial;
+							box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+						}
+
+						paper-tabs::shadow #selectionBar {
+							background-color: #b12d2b;
+						}
+					</style>
+					<!--
+					<paper-tabs selected="0">
+						<paper-tab>JavaScript Apps</paper-tab>
+						<paper-tab>Compile-to-JS</paper-tab>
+						<paper-tab>Vanilla JS</paper-tab>
+					</paper-tabs>
+					-->
+
 					<ul class="applist js">
 						<li class="routing">
 							<a href="architecture-examples/backbone/" data-source="http://documentcloud.github.com/backbone/" data-content="Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.">Backbone.js</a>
@@ -265,6 +321,7 @@
 						</li>
 					</ul>
 				</div>
+			</div>
 			</div>
 			<hr>
 			<div class="row">
